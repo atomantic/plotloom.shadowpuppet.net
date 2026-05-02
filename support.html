@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#F6E5CD" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#171519" media="(prefers-color-scheme: dark)">
+    <title>Support — PlotLoom</title>
+    <meta name="description" content="Get help with PlotLoom — the book club companion for iPhone, iPad, and Mac. Contact, FAQ, and troubleshooting.">
+    <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon-128.png">
+    <link rel="apple-touch-icon" href="assets/app-icon-256.png">
+    <link rel="canonical" href="https://plotloom.shadowpuppet.net/support.html">
+    <style>
+        :root {
+            --paper:      #F6E5CD;
+            --parchment:  #E8CCA3;
+            --ink:        #21201F;
+            --ink-soft:   #4a3f33;
+            --muted:      #7a6a55;
+            --indigo:     #212E61;
+            --plum:       #6B4087;
+            --plum-deep:  #4f2d65;
+            --sage:       #5E7D57;
+            --coral:      #CC4F36;
+            --gold:       #D4993D;
+            --card-fill:  rgba(255,255,255,0.36);
+            --card-stroke:rgba(255,255,255,0.50);
+            --shadow-ink: rgba(33, 32, 31, 0.10);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --paper:      #171519;
+                --parchment:  #1F212E;
+                --ink:        #F8EBD6;
+                --ink-soft:   #d4c3a8;
+                --muted:      #b8a088;
+                --indigo:     #94A6F0;
+                --plum:       #C291D6;
+                --plum-deep:  #d49ab5;
+                --sage:       #A8C290;
+                --coral:      #F57A59;
+                --gold:       #F0B85C;
+                --card-fill:  rgba(255,255,255,0.06);
+                --card-stroke:rgba(255,255,255,0.14);
+                --shadow-ink: rgba(0, 0, 0, 0.40);
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            color: var(--ink);
+            line-height: 1.6;
+            background:
+                radial-gradient(circle at 80% 0%, rgba(107, 64, 135, 0.08), transparent 50%),
+                linear-gradient(160deg, var(--paper) 0%, var(--parchment) 100%);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100dvh;
+        }
+        a { color: var(--plum); }
+        .wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 1.5rem);
+        }
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            color: var(--plum);
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+        }
+        .back:hover { text-decoration: underline; }
+        h1 {
+            color: var(--plum);
+            font-size: clamp(2rem, 6vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .lede {
+            font-size: clamp(1rem, 2.8vw, 1.1rem);
+            color: var(--ink-soft);
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .contact-card {
+            background: var(--card-fill);
+            border: 1px solid var(--card-stroke);
+            border-radius: 12px;
+            padding: 1.4rem 1.5rem;
+            margin: 1.5rem 0 2.5rem;
+            box-shadow: 0 4px 20px var(--shadow-ink);
+        }
+        .contact-card h2 {
+            color: var(--indigo);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+        .contact-card p { color: var(--ink-soft); font-size: 0.95rem; }
+        .contact-card .email {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--plum);
+            text-decoration: none;
+            border-bottom: 2px solid currentColor;
+        }
+        h2.section {
+            color: var(--plum);
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            letter-spacing: -0.01em;
+        }
+        details {
+            background: var(--card-fill);
+            border: 1px solid var(--card-stroke);
+            border-radius: 10px;
+            padding: 0.9rem 1.1rem;
+            margin-bottom: 0.6rem;
+        }
+        details summary {
+            font-weight: 600;
+            color: var(--indigo);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::after {
+            content: "+";
+            color: var(--plum);
+            font-size: 1.3rem;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+        details[open] summary::after { content: "−"; }
+        details p {
+            margin-top: 0.7rem;
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+        }
+        details ul {
+            margin-top: 0.7rem;
+            padding-left: 1.3rem;
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+        }
+        details li { margin-bottom: 0.3rem; }
+        .links {
+            text-align: center;
+            margin: 2.5rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        .links a {
+            color: var(--plum);
+            text-decoration: none;
+            margin: 0 0.8rem;
+        }
+        .links a:hover { text-decoration: underline; }
+        footer {
+            text-align: center;
+            padding: 1rem 1rem 2rem;
+            padding-bottom: max(2rem, env(safe-area-inset-bottom));
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            * { transition: none !important; animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <a href="index.html" class="back">&larr; Back to PlotLoom</a>
+        <h1>Support</h1>
+        <p class="lede">Need a hand with PlotLoom? Here&rsquo;s how to reach us and answers to common questions.</p>
+
+        <div class="contact-card">
+            <h2>Contact us</h2>
+            <p>Email is the fastest way to reach the PlotLoom team. We typically reply within a couple of business days.</p>
+            <a href="mailto:plotloom@shadowpuppet.net?subject=PlotLoom%20support" class="email">plotloom@shadowpuppet.net</a>
+        </div>
+
+        <h2 class="section">Frequently asked questions</h2>
+
+        <details>
+            <summary>What is PlotLoom?</summary>
+            <p>PlotLoom is a companion app for book clubs and reading groups on iPhone, iPad, and Mac. Members propose books, the loom picks the next read at random, everyone rates it 1&ndash;5 stars, and a shared history is kept &mdash; all synced through iCloud.</p>
+        </details>
+
+        <details>
+            <summary>Do I need an account?</summary>
+            <p>No. PlotLoom uses your existing iCloud account for sync and sharing through Apple&rsquo;s CloudKit. There is no separate PlotLoom account, login, or password to manage.</p>
+        </details>
+
+        <details>
+            <summary>How do I invite other members to my club?</summary>
+            <p>Open the club, tap the share/invite action in the toolbar, and use Apple&rsquo;s built-in sharing to send an invite link to anyone with an iPhone, iPad, or Mac signed in to iCloud. Invited members get read/write access to the shared club content.</p>
+        </details>
+
+        <details>
+            <summary>My club isn&rsquo;t syncing across my devices.</summary>
+            <p>A few things to check:</p>
+            <ul>
+                <li>All your devices are signed in to the same iCloud account.</li>
+                <li>iCloud Drive is enabled in <strong>Settings &rarr; [your name] &rarr; iCloud</strong>.</li>
+                <li>PlotLoom is toggled on in your iCloud-enabled apps list.</li>
+                <li>You have an active internet connection on each device.</li>
+            </ul>
+            <p>If sync is still misbehaving, open Settings inside PlotLoom and check the Sync section for status details, or email us with what you&rsquo;re seeing.</p>
+        </details>
+
+        <details>
+            <summary>Where is my data stored?</summary>
+            <p>Your clubs, proposed and completed books, ratings, and notes live locally on your device and in your private iCloud account. ShadowPuppet, LLC has no access to your iCloud data, your Apple ID, or the contents of your shared clubs. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+        </details>
+
+        <details>
+            <summary>How do I delete my data?</summary>
+            <p>You can leave shared clubs from the club&rsquo;s sharing menu and delete clubs you own from the clubs list. Uninstalling PlotLoom removes its local data; data in your private iCloud container can also be cleared from iCloud system settings.</p>
+        </details>
+
+        <details>
+            <summary>Are there in-app purchases or a subscription?</summary>
+            <p>The current release of PlotLoom is free with no subscription. Any future optional purchases would be processed by Apple, and we would never receive your payment details.</p>
+        </details>
+
+        <details>
+            <summary>Which devices are supported?</summary>
+            <p>PlotLoom runs on iPhone (iOS 17+), iPad (iPadOS 17+), and Mac (macOS 14+). It is a native SwiftUI app with the same density on every device.</p>
+        </details>
+
+        <details>
+            <summary>How do I report a bug or request a feature?</summary>
+            <p>Email <a href="mailto:plotloom@shadowpuppet.net?subject=PlotLoom%20bug%20or%20feature%20request">plotloom@shadowpuppet.net</a> with a short description of what happened (or what you&rsquo;d like to see), the device you&rsquo;re on, and any steps to reproduce. Screenshots help.</p>
+        </details>
+
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 ShadowPuppet, LLC. All rights reserved.
+    </footer>
+</body>
+</html>
