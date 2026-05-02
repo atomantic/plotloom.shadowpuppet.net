@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#F6E5CD" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#171519" media="(prefers-color-scheme: dark)">
-    <title>PlotLoom — Book Club Companion for iPhone, iPad &amp; Mac</title>
+    <title>BookLoom: Book Club Planner for iPhone, iPad &amp; Mac</title>
     <meta name="description" content="A quiet operating surface for your book club. Propose books, let the loom pick your next read, rate together, and keep a shared history — synced across iPhone, iPad, and Mac via iCloud.">
     <meta name="keywords" content="book club app, reading group app, book picker, book ratings, reading tracker, book club companion, iCloud book club, shared reading list, group reading app, book proposal pool, book club ratings, reading group iPhone, reading group iPad, book club Mac">
     <meta name="author" content="ShadowPuppet, LLC">
@@ -14,34 +14,34 @@
     <link rel="apple-touch-icon" href="assets/app-icon-256.png">
 
     <!-- Social sharing -->
-    <meta property="og:title" content="PlotLoom — Weave Your Book Club Together">
+    <meta property="og:title" content="BookLoom: Book Club Planner">
     <meta property="og:description" content="Propose books, let the loom pick your next read, rate together, and keep a shared history. iPhone, iPad, and Mac. Synced via iCloud.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://plotloom.shadowpuppet.net/">
-    <meta property="og:image" content="https://plotloom.shadowpuppet.net/assets/hero.png">
-    <meta property="og:site_name" content="PlotLoom">
+    <meta property="og:url" content="https://bookloom.shadowpuppet.net/">
+    <meta property="og:image" content="https://bookloom.shadowpuppet.net/assets/hero.png">
+    <meta property="og:site_name" content="BookLoom">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="PlotLoom — Weave Your Book Club Together">
+    <meta name="twitter:title" content="BookLoom: Book Club Planner">
     <meta name="twitter:description" content="A quiet operating surface for your book club. Propose, pick, rate, and remember — together.">
-    <meta name="twitter:image" content="https://plotloom.shadowpuppet.net/assets/hero.png">
-    <link rel="canonical" href="https://plotloom.shadowpuppet.net/">
+    <meta name="twitter:image" content="https://bookloom.shadowpuppet.net/assets/hero.png">
+    <link rel="canonical" href="https://bookloom.shadowpuppet.net/">
 
     <style>
-        /* ---------- PlotLoom design tokens (mirror PlotLoomStyle.swift) ---------- */
+        /* ---------- BookLoom design tokens (mirror BookLoomStyle.swift) ---------- */
         :root {
-            --paper:        #F6E5CD;  /* PlotLoomStyle.paper */
-            --parchment:    #E8CCA3;  /* PlotLoomStyle.parchment */
+            --paper:        #F6E5CD;  /* BookLoomStyle.paper */
+            --parchment:    #E8CCA3;  /* BookLoomStyle.parchment */
             --paper-deep:   #EFD8B5;
-            --ink:          #21201F;  /* PlotLoomStyle.ink (light) */
+            --ink:          #21201F;  /* BookLoomStyle.ink (light) */
             --ink-soft:     #4a3f33;
             --muted:        #7a6a55;
-            --indigo:       #212E61;  /* PlotLoomStyle.indigo */
-            --plum:         #6B4087;  /* PlotLoomStyle.plum + AccentColor */
+            --indigo:       #212E61;  /* BookLoomStyle.indigo */
+            --plum:         #6B4087;  /* BookLoomStyle.plum + AccentColor */
             --plum-deep:    #4f2d65;
-            --sage:         #5E7D57;  /* PlotLoomStyle.sage */
-            --coral:        #CC4F36;  /* PlotLoomStyle.coral */
-            --gold:         #D4993D;  /* PlotLoomStyle.gold */
+            --sage:         #5E7D57;  /* BookLoomStyle.sage */
+            --coral:        #CC4F36;  /* BookLoomStyle.coral */
+            --gold:         #D4993D;  /* BookLoomStyle.gold */
             --card-fill:    rgba(255,255,255,0.36);
             --card-stroke:  rgba(255,255,255,0.50);
             --tint-bg:      rgba(107, 64, 135, 0.13);   /* plum @ 13% — matches TintedCapsuleLabel */
@@ -52,7 +52,7 @@
                 --paper:        #171519;  /* dark gradient stop 1 */
                 --parchment:    #1F212E;  /* dark gradient stop 2 */
                 --paper-deep:   #2E2133;  /* dark gradient stop 3 */
-                --ink:          #F8EBD6;  /* PlotLoomStyle.ink (dark) */
+                --ink:          #F8EBD6;  /* BookLoomStyle.ink (dark) */
                 --ink-soft:     #d4c3a8;
                 --muted:        #b8a088;
                 --indigo:       #94A6F0;
@@ -80,7 +80,7 @@
         }
         a { color: var(--plum); }
 
-        /* ---------- Hero (mirrors PlotLoomStyle.screenGradient) ---------- */
+        /* ---------- Hero (mirrors BookLoomStyle.screenGradient) ---------- */
         .hero {
             background:
                 radial-gradient(circle at 18% 18%, rgba(107, 64, 135, 0.10), transparent 45%),
@@ -218,7 +218,7 @@
             gap: 0.9rem;
             margin-bottom: 2rem;
         }
-        /* Card style mirrors plotLoomCard modifier: white @ 36% fill, white @ 50% stroke, radius 8 */
+        /* Card style mirrors bookLoomCard modifier: white @ 36% fill, white @ 50% stroke, radius 8 */
         .feature {
             background: var(--card-fill);
             border-radius: 10px;
@@ -306,19 +306,19 @@
             <img class="hero-art" src="assets/hero.png" alt="Open books woven together with colored ribbons, surrounded by parchment bookmarks and pressed leaves" width="600" height="600">
 
             <div>
-                <h1>PlotLoom</h1>
+                <h1>BookLoom</h1>
                 <div class="tagline">Weave your book club together</div>
             </div>
 
             <div class="subtitle">A quiet operating surface for your reading group. Propose books, let the loom pick your next read, rate together, and keep a shared history — synced across iPhone, iPad, and Mac via iCloud.</div>
 
-            <div class="pills" aria-label="Book status types in PlotLoom">
+            <div class="pills" aria-label="Book status types in BookLoom">
                 <span class="pill proposed"><span class="dot"></span>Proposed</span>
                 <span class="pill current"><span class="dot"></span>Currently reading</span>
                 <span class="pill completed"><span class="dot"></span>Completed</span>
             </div>
 
-            <a href="mailto:plotloom@shadowpuppet.net?subject=Notify%20me%20when%20PlotLoom%20launches" class="coming-soon" aria-label="Email plotloom@shadowpuppet.net to be notified when PlotLoom launches">
+            <a href="mailto:bookloom@shadowpuppet.net?subject=Notify%20me%20when%20BookLoom%20launches" class="coming-soon" aria-label="Email bookloom@shadowpuppet.net to be notified when BookLoom launches">
                 <span class="label-small">Coming soon to the</span>
                 <span class="label-big">App Store</span>
                 <span class="platforms">iPhone · iPad · Mac</span>
@@ -376,13 +376,13 @@
         </div>
 
         <div class="mid-cta">
-            <a href="mailto:plotloom@shadowpuppet.net?subject=Notify%20me%20when%20PlotLoom%20launches" class="coming-soon" aria-label="Email plotloom@shadowpuppet.net to be notified when PlotLoom launches">
+            <a href="mailto:bookloom@shadowpuppet.net?subject=Notify%20me%20when%20BookLoom%20launches" class="coming-soon" aria-label="Email bookloom@shadowpuppet.net to be notified when BookLoom launches">
                 <span class="label-small">Coming soon to the</span>
                 <span class="label-big">App Store</span>
                 <span class="platforms">iPhone · iPad · Mac</span>
             </a>
             <div class="notify-line">
-                Want a heads-up at launch? Email <a href="mailto:plotloom@shadowpuppet.net">plotloom@shadowpuppet.net</a> or visit <a href="support.html">Support</a>.
+                Want a heads-up at launch? Email <a href="mailto:bookloom@shadowpuppet.net">bookloom@shadowpuppet.net</a> or visit <a href="support.html">Support</a>.
             </div>
         </div>
 
