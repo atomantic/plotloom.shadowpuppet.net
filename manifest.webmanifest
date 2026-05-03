@@ -1,0 +1,33 @@
+{
+  "name": "BookLoom — Private Book Club App",
+  "short_name": "BookLoom",
+  "description": "Private book club planner with proposal pool, ranked-choice voting, meetings, RSVPs, and per-member ratings — synced via iCloud across iPhone, iPad, and Mac.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "theme_color": "#6B4087",
+  "background_color": "#F6E5CD",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/assets/favicon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/app-icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["books", "lifestyle", "productivity"],
+  "related_applications": [
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/id6765790616",
+      "id": "6765790616"
+    }
+  ],
+  "prefer_related_applications": true
+}

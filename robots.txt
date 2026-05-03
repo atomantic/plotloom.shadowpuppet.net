@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bookloom.shadowpuppet.net/sitemap.xml

@@ -5,300 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#F6E5CD" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#171519" media="(prefers-color-scheme: dark)">
-    <title>BookLoom: Book Club Planner for iPhone, iPad &amp; Mac</title>
-    <meta name="description" content="A quiet operating surface for your book club. Propose books, let the loom pick your next read, rate together, and keep a shared history — synced across iPhone, iPad, and Mac via iCloud.">
-    <meta name="keywords" content="book club app, reading group app, book picker, book ratings, reading tracker, book club companion, iCloud book club, shared reading list, group reading app, book proposal pool, book club ratings, reading group iPhone, reading group iPad, book club Mac">
+    <title>BookLoom — Private Book Club App with Voting, Meetings &amp; iCloud Sync (iPhone, iPad, Mac)</title>
+    <meta name="description" content="Run your book club without ads or accounts. Propose books, vote on the next read, schedule meetings with RSVPs, and rate together — synced via iCloud.">
+    <meta name="keywords" content="book club app, private book club, reading group app, book club voting, ranked choice voting books, book club meetings, RSVP book club, iCloud book club, book club planner, book picker app, book ratings, reading tracker, book club companion, shared reading list, group reading app, book proposal pool, book club ratings, reading group iPhone, reading group iPad, book club Mac">
     <meta name="author" content="ShadowPuppet, LLC">
 
     <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon-128.png">
     <link rel="apple-touch-icon" href="assets/app-icon-256.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="/assets/site.css">
 
     <!-- Social sharing -->
-    <meta property="og:title" content="BookLoom: Book Club Planner">
-    <meta property="og:description" content="Propose books, let the loom pick your next read, rate together, and keep a shared history. iPhone, iPad, and Mac. Synced via iCloud.">
+    <meta property="og:title" content="BookLoom — Private Book Club App with Voting, Meetings &amp; iCloud Sync">
+    <meta property="og:description" content="Propose books, vote on the next read, schedule meetings with RSVPs, rate together, and keep a shared history. iPhone, iPad, and Mac. Synced via iCloud — no accounts, no ads.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bookloom.shadowpuppet.net/">
     <meta property="og:image" content="https://bookloom.shadowpuppet.net/assets/hero.png">
     <meta property="og:site_name" content="BookLoom">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BookLoom: Book Club Planner">
-    <meta name="twitter:description" content="A quiet operating surface for your book club. Propose, pick, rate, and remember — together.">
+    <meta name="twitter:title" content="BookLoom — Private Book Club App">
+    <meta name="twitter:description" content="A quiet operating surface for your book club. Propose, vote, meet, rate — together.">
     <meta name="twitter:image" content="https://bookloom.shadowpuppet.net/assets/hero.png">
     <link rel="canonical" href="https://bookloom.shadowpuppet.net/">
 
-    <style>
-        /* ---------- BookLoom design tokens (mirror BookLoomStyle.swift) ---------- */
-        :root {
-            --paper:        #F6E5CD;  /* BookLoomStyle.paper */
-            --parchment:    #E8CCA3;  /* BookLoomStyle.parchment */
-            --paper-deep:   #EFD8B5;
-            --ink:          #21201F;  /* BookLoomStyle.ink (light) */
-            --ink-soft:     #4a3f33;
-            --muted:        #7a6a55;
-            --indigo:       #212E61;  /* BookLoomStyle.indigo */
-            --plum:         #6B4087;  /* BookLoomStyle.plum + AccentColor */
-            --plum-deep:    #4f2d65;
-            --sage:         #5E7D57;  /* BookLoomStyle.sage */
-            --coral:        #CC4F36;  /* BookLoomStyle.coral */
-            --gold:         #D4993D;  /* BookLoomStyle.gold */
-            --card-fill:    rgba(255,255,255,0.36);
-            --card-stroke:  rgba(255,255,255,0.50);
-            --tint-bg:      rgba(107, 64, 135, 0.13);   /* plum @ 13% — matches TintedCapsuleLabel */
-            --shadow-ink:   rgba(33, 32, 31, 0.10);
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --paper:        #171519;  /* dark gradient stop 1 */
-                --parchment:    #1F212E;  /* dark gradient stop 2 */
-                --paper-deep:   #2E2133;  /* dark gradient stop 3 */
-                --ink:          #F8EBD6;  /* BookLoomStyle.ink (dark) */
-                --ink-soft:     #d4c3a8;
-                --muted:        #b8a088;
-                --indigo:       #94A6F0;
-                --plum:         #C291D6;
-                --plum-deep:    #d49ab5;
-                --sage:         #A8C290;
-                --coral:        #F57A59;
-                --gold:         #F0B85C;
-                --card-fill:    rgba(255,255,255,0.06);
-                --card-stroke:  rgba(255,255,255,0.14);
-                --tint-bg:      rgba(194, 145, 214, 0.16);
-                --shadow-ink:   rgba(0, 0, 0, 0.40);
-            }
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { -webkit-text-size-adjust: 100%; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-            color: var(--ink);
-            line-height: 1.6;
-            background: var(--paper);
-            -webkit-font-smoothing: antialiased;
-            min-height: 100dvh;
-        }
-        a { color: var(--plum); }
-
-        /* ---------- Hero (mirrors BookLoomStyle.screenGradient) ---------- */
-        .hero {
-            background:
-                radial-gradient(circle at 18% 18%, rgba(107, 64, 135, 0.10), transparent 45%),
-                radial-gradient(circle at 82% 30%, rgba(33, 46, 97, 0.09), transparent 45%),
-                radial-gradient(circle at 50% 92%, rgba(204, 79, 54, 0.08), transparent 50%),
-                linear-gradient(160deg, var(--paper) 0%, var(--parchment) 100%);
-            text-align: center;
-            padding: clamp(2.5rem, 7vw, 4.5rem) clamp(1rem, 4vw, 2rem) clamp(2rem, 6vw, 3.5rem);
-            position: relative;
-            overflow: hidden;
-        }
-        @media (prefers-color-scheme: dark) {
-            .hero {
-                background:
-                    radial-gradient(circle at 18% 18%, rgba(194, 145, 214, 0.12), transparent 45%),
-                    radial-gradient(circle at 82% 30%, rgba(148, 166, 240, 0.10), transparent 45%),
-                    linear-gradient(160deg, var(--paper) 0%, var(--parchment) 60%, var(--paper-deep) 100%);
-            }
-        }
-        .hero-inner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: clamp(1.2rem, 3vw, 2rem);
-            max-width: 760px;
-            margin: 0 auto;
-            position: relative;
-        }
-        .hero-art {
-            width: clamp(180px, 40vw, 280px);
-            height: auto;
-            border-radius: 18px;
-            box-shadow:
-                0 12px 32px var(--shadow-ink),
-                0 0 0 1px var(--card-stroke);
-            background: var(--paper);
-        }
-        .hero h1 {
-            font-size: clamp(2.4rem, 9vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--plum);
-            line-height: 1.05;
-        }
-        .hero .tagline {
-            font-size: clamp(1.1rem, 4vw, 1.5rem);
-            margin-top: -0.4rem;
-            color: var(--indigo);
-            font-weight: 600;
-        }
-        .hero .subtitle {
-            font-size: clamp(0.95rem, 2.8vw, 1.1rem);
-            color: var(--ink-soft);
-            max-width: 560px;
-        }
-
-        /* ---------- App-style status pills (mirrors TintedCapsuleLabel) ---------- */
-        .pills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.78rem;
-            font-weight: 600;
-            padding: 0.35rem 0.7rem;
-            border-radius: 999px;
-            line-height: 1;
-        }
-        .pill.proposed { color: var(--plum);   background: rgba(107, 64, 135, 0.13); }
-        .pill.current  { color: var(--sage);   background: rgba(94, 125, 87, 0.15); }
-        .pill.completed{ color: var(--indigo); background: rgba(33, 46, 97, 0.13); }
-        .pill.coral    { color: var(--coral);  background: rgba(204, 79, 54, 0.13); }
-        .pill .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: 0.75; }
-
-        /* ---------- Coming-soon CTA ---------- */
-        .coming-soon {
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.45rem;
-            background: var(--ink);
-            color: var(--paper);
-            text-decoration: none;
-            padding: 1rem 1.8rem;
-            border-radius: 14px;
-            font-weight: 600;
-            box-shadow: 0 8px 28px var(--shadow-ink);
-            min-height: 64px;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-        .coming-soon:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px var(--shadow-ink);
-        }
-        .coming-soon .label-small {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            opacity: 0.78;
-            font-weight: 500;
-        }
-        .coming-soon .label-big {
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-        .coming-soon .platforms {
-            font-size: 0.78rem;
-            opacity: 0.7;
-            font-weight: 400;
-        }
-
-        /* ---------- Content ---------- */
-        .content {
-            max-width: 820px;
-            margin: 0 auto;
-            padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 4vw, 1.5rem);
-        }
-        .features h2 {
-            color: var(--plum);
-            font-size: clamp(1.3rem, 4vw, 1.65rem);
-            margin-bottom: 1.4rem;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-            gap: 0.9rem;
-            margin-bottom: 2rem;
-        }
-        /* Card style mirrors bookLoomCard modifier: white @ 36% fill, white @ 50% stroke, radius 8 */
-        .feature {
-            background: var(--card-fill);
-            border-radius: 10px;
-            padding: 1.1rem 1.15rem;
-            border: 1px solid var(--card-stroke);
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .feature-head {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .feature-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: var(--paper);
-            flex-shrink: 0;
-        }
-        .feature-icon.plum   { background: linear-gradient(135deg, var(--indigo), var(--plum)); }
-        .feature-icon.sage   { background: linear-gradient(135deg, var(--sage), var(--indigo)); }
-        .feature-icon.coral  { background: linear-gradient(135deg, var(--coral), var(--gold)); }
-        .feature-icon.gold   { background: linear-gradient(135deg, var(--gold), var(--coral)); }
-        .feature-icon.indigo { background: linear-gradient(135deg, var(--indigo), var(--plum)); }
-        .feature-icon.plumcoral { background: linear-gradient(135deg, var(--plum), var(--coral)); }
-
-        .feature strong {
-            color: var(--plum);
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: -0.005em;
-        }
-        .feature p {
-            font-size: 0.9rem;
-            color: var(--ink-soft);
-            line-height: 1.5;
-        }
-
-        /* ---------- Mid CTA + notify ---------- */
-        .mid-cta {
-            text-align: center;
-            margin: clamp(2rem, 6vw, 3rem) 0 1rem;
-        }
-        .mid-cta .notify-line {
-            margin-top: 0.9rem;
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
-        .mid-cta .notify-line a { font-weight: 600; }
-
-        .links {
-            text-align: center;
-            margin: 2rem 0 1rem;
-            font-size: 0.9rem;
-        }
-        .links a {
-            color: var(--plum);
-            text-decoration: none;
-            margin: 0 0.8rem;
-        }
-        .links a:hover { text-decoration: underline; }
-
-        footer {
-            text-align: center;
-            padding: 1.5rem 1rem 2rem;
-            padding-bottom: max(2rem, env(safe-area-inset-bottom));
-            font-size: 0.8rem;
-            color: var(--muted);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * { transition: none !important; animation: none !important; }
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "BookLoom",
+      "alternateName": "BookLoom: Book Club Planner",
+      "description": "Private book club planner for iPhone, iPad, and Mac. Propose books, vote with ranked-choice polls, schedule meetings with RSVPs, rate together, and keep a shared history — synced via iCloud, no accounts required.",
+      "applicationCategory": "LifestyleApplication",
+      "applicationSubCategory": "Books",
+      "operatingSystem": "iOS 17.0, iPadOS 17.0, macOS 14.0",
+      "url": "https://bookloom.shadowpuppet.net/",
+      "downloadUrl": "https://apps.apple.com/app/id6765790616",
+      "installUrl": "https://apps.apple.com/app/id6765790616",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "author": { "@type": "Organization", "name": "ShadowPuppet, LLC" },
+      "publisher": { "@type": "Organization", "name": "ShadowPuppet, LLC" },
+      "image": "https://bookloom.shadowpuppet.net/assets/hero.png",
+      "screenshot": "https://bookloom.shadowpuppet.net/assets/hero.png",
+      "featureList": [
+        "Shared proposal pool — every member submits books",
+        "Random Loom Picks rotation",
+        "Ranked-choice voting for the next book",
+        "Meeting scheduling with RSVPs and agenda",
+        "Local meeting reminders",
+        "Per-member 1–5 star ratings shown side-by-side",
+        "Per-member private notes",
+        "Starter and custom discussion prompts",
+        "ISBN / cover lookup via OpenLibrary and Google Books",
+        "iCloud + CKShare sync — no account required",
+        "No ads, no tracking, no subscription"
+      ],
+      "keywords": "book club app, private book club, reading group, book club voting, ranked choice voting, book club meetings, RSVP, iCloud sync, no ads"
+    }
+    </script>
 </head>
 <body>
     <div class="hero">
@@ -310,7 +79,7 @@
                 <div class="tagline">Weave your book club together</div>
             </div>
 
-            <div class="subtitle">A quiet operating surface for your reading group. Propose books, let the loom pick your next read, rate together, and keep a shared history — synced across iPhone, iPad, and Mac via iCloud.</div>
+            <div class="subtitle">A quiet operating surface for your reading group. Propose books, vote on the next read, schedule meetings with RSVPs, rate together, and keep a shared history — synced across iPhone, iPad, and Mac via iCloud.</div>
 
             <div class="pills" aria-label="Book status types in BookLoom">
                 <span class="pill proposed"><span class="dot"></span>Proposed</span>
@@ -342,7 +111,7 @@
                         <div class="feature-icon sage" aria-hidden="true">🎲</div>
                         <strong>The Loom Picks</strong>
                     </div>
-                    <p>When you&rsquo;re ready, the loom weaves a random pick from the pool into &quot;currently reading&quot; and archives the previous one.</p>
+                    <p>When you&rsquo;re ready, the loom weaves a random pick from the pool into &quot;currently reading&quot; and archives the previous one. Or run a ranked vote when the group wants a say.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-head">
@@ -384,6 +153,13 @@
             <div class="notify-line">
                 Want a heads-up at launch? Email <a href="mailto:bookloom@shadowpuppet.net">bookloom@shadowpuppet.net</a> or visit <a href="support.html">Support</a>.
             </div>
+        </div>
+
+        <div class="vs-nav" aria-label="Compare BookLoom with other book club apps">
+            <a href="/vs/bookclubs/">vs Bookclubs</a>
+            <a href="/vs/goodreads/">vs Goodreads Groups</a>
+            <a href="/vs/fable/">vs Fable</a>
+            <a href="/vs/storygraph/">vs StoryGraph Buddy Reads</a>
         </div>
 
         <div class="links">
