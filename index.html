@@ -10,6 +10,9 @@
     <meta name="keywords" content="book club app, private book club, reading group app, book club voting, ranked choice voting books, book club meetings, RSVP book club, iCloud book club, book club planner, book picker app, book ratings, reading tracker, book club companion, shared reading list, group reading app, book proposal pool, book club ratings, reading group iPhone, reading group iPad, book club Mac">
     <meta name="author" content="ShadowPuppet, LLC">
 
+    <!-- iOS Safari Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=6765790616">
+
     <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon-128.png">
     <link rel="apple-touch-icon" href="assets/app-icon-256.png">
     <link rel="manifest" href="/manifest.webmanifest">
@@ -40,8 +43,8 @@
       "applicationSubCategory": "Books",
       "operatingSystem": "iOS 17.0, iPadOS 17.0, macOS 14.0",
       "url": "https://bookloom.shadowpuppet.net/",
-      "downloadUrl": "https://apps.apple.com/app/id6765790616",
-      "installUrl": "https://apps.apple.com/app/id6765790616",
+      "downloadUrl": "https://apps.apple.com/us/app/bookloom-book-club-planner/id6765790616",
+      "installUrl": "https://apps.apple.com/us/app/bookloom-book-club-planner/id6765790616",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -70,6 +73,17 @@
     </script>
 </head>
 <body>
+    <!-- Custom install banner: shown on non-Safari mobile (Safari gets the native one via meta tag) -->
+    <div class="install-banner" id="installBanner" role="banner">
+        <button class="close" id="installBannerClose" aria-label="Dismiss install banner">&times;</button>
+        <img class="icon" src="assets/app-icon-256.png" alt="">
+        <div class="info">
+            <strong>BookLoom</strong>
+            <span>Free on the App Store — iPhone, iPad &amp; Mac</span>
+        </div>
+        <a class="get" href="https://apps.apple.com/us/app/bookloom-book-club-planner/id6765790616">Get</a>
+    </div>
+
     <div class="hero">
         <div class="hero-inner">
             <img class="hero-art" src="assets/hero.png" alt="Open books woven together with colored ribbons, surrounded by parchment bookmarks and pressed leaves" width="600" height="600">
@@ -87,10 +101,14 @@
                 <span class="pill completed"><span class="dot"></span>Completed</span>
             </div>
 
-            <a href="mailto:bookloom@shadowpuppet.net?subject=Notify%20me%20when%20BookLoom%20launches" class="coming-soon" aria-label="Email bookloom@shadowpuppet.net to be notified when BookLoom launches">
-                <span class="label-small">Coming soon to the</span>
-                <span class="label-big">App Store</span>
-                <span class="platforms">iPhone · iPad · Mac</span>
+            <a href="https://apps.apple.com/us/app/bookloom-book-club-planner/id6765790616" class="app-store-badge" aria-label="Download BookLoom on the App Store">
+                <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                </svg>
+                <span class="label">
+                    <span class="small">Download on the</span>
+                    <span class="big">App Store</span>
+                </span>
             </a>
         </div>
     </div>
@@ -145,14 +163,15 @@
         </div>
 
         <div class="mid-cta">
-            <a href="mailto:bookloom@shadowpuppet.net?subject=Notify%20me%20when%20BookLoom%20launches" class="coming-soon" aria-label="Email bookloom@shadowpuppet.net to be notified when BookLoom launches">
-                <span class="label-small">Coming soon to the</span>
-                <span class="label-big">App Store</span>
-                <span class="platforms">iPhone · iPad · Mac</span>
+            <a href="https://apps.apple.com/us/app/bookloom-book-club-planner/id6765790616" class="app-store-badge" aria-label="Download BookLoom on the App Store">
+                <svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+                </svg>
+                <span class="label">
+                    <span class="small">Download on the</span>
+                    <span class="big">App Store</span>
+                </span>
             </a>
-            <div class="notify-line">
-                Want a heads-up at launch? Email <a href="mailto:bookloom@shadowpuppet.net">bookloom@shadowpuppet.net</a> or visit <a href="support.html">Support</a>.
-            </div>
         </div>
 
         <div class="vs-nav" aria-label="Compare BookLoom with other book club apps">
@@ -172,5 +191,32 @@
     <footer>
         &copy; 2026 ShadowPuppet, LLC. All rights reserved.
     </footer>
+
+    <script>
+        (function() {
+            var banner = document.getElementById('installBanner');
+            var closeBtn = document.getElementById('installBannerClose');
+            if (!banner || !closeBtn) return;
+
+            var DISMISSED_KEY = 'bookloom_install_banner_dismissed';
+            var ua = navigator.userAgent;
+            var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(ua) || window.innerWidth < 768;
+            var isIOS = /iPad|iPhone|iPod/.test(ua);
+            var isSafari = /^((?!chrome|android|crios|fxios|edgios).)*safari/i.test(ua);
+            var nativeBannerWillShow = isIOS && isSafari;
+
+            var dismissed = false;
+            try { dismissed = window.localStorage.getItem(DISMISSED_KEY) === '1'; } catch (e) {}
+
+            if (isMobile && !nativeBannerWillShow && !dismissed) {
+                banner.classList.add('visible');
+            }
+
+            closeBtn.addEventListener('click', function() {
+                banner.classList.remove('visible');
+                try { window.localStorage.setItem(DISMISSED_KEY, '1'); } catch (e) {}
+            });
+        })();
+    </script>
 </body>
 </html>
