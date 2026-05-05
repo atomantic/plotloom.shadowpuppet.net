@@ -18,6 +18,69 @@
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="stylesheet" href="/assets/site.css">
 
+    <style>
+        /* Install banner + App Store badge — inline to avoid cache-split with HTML */
+        .install-banner {
+            display: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(33, 32, 31, 0.93);
+            border-bottom: 1px solid rgba(107, 64, 135, 0.25);
+            padding: 0.65rem 0.85rem;
+            padding-top: max(0.65rem, env(safe-area-inset-top));
+            align-items: center;
+            gap: 0.75rem;
+            backdrop-filter: saturate(180%) blur(14px);
+            -webkit-backdrop-filter: saturate(180%) blur(14px);
+        }
+        @media (prefers-color-scheme: dark) {
+            .install-banner { background: rgba(23, 21, 25, 0.93); border-bottom-color: rgba(194, 145, 214, 0.25); }
+        }
+        .install-banner.visible { display: flex; }
+        .install-banner .close {
+            background: transparent; border: 0; color: #b8a088;
+            font-size: 1.4rem; line-height: 1; padding: 0.3rem 0.5rem;
+            cursor: pointer; border-radius: 50%;
+        }
+        .install-banner .close:hover { color: #C291D6; }
+        .install-banner .icon {
+            width: 46px; height: 46px; border-radius: 11px;
+            flex-shrink: 0; object-fit: cover;
+        }
+        .install-banner .info { flex: 1; min-width: 0; }
+        .install-banner .info strong {
+            color: #C291D6; font-size: 0.92rem; display: block; font-weight: 700;
+        }
+        .install-banner .info span {
+            font-size: 0.75rem; color: #b8a088; display: block;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+        }
+        .install-banner .get {
+            background: #6B4087; color: #F6E5CD; text-decoration: none;
+            font-weight: 800; font-size: 0.78rem; padding: 0.5rem 1rem;
+            border-radius: 20px; text-transform: uppercase; letter-spacing: 0.04em;
+            flex-shrink: 0;
+        }
+        .hero .app-store-badge, .mid-cta .app-store-badge {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: var(--ink); color: var(--paper); text-decoration: none;
+            padding: 0.85rem 1.6rem; border-radius: 12px; font-weight: 600;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 4px 20px var(--shadow-ink), 0 0 0 1px var(--card-stroke);
+            min-height: 56px;
+        }
+        .hero .app-store-badge:hover, .mid-cta .app-store-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(107, 64, 135, 0.25), 0 0 0 1px rgba(107, 64, 135, 0.3);
+        }
+        .hero .app-store-badge:active, .mid-cta .app-store-badge:active { transform: translateY(0); }
+        .app-store-badge svg { width: 30px; height: 30px; flex-shrink: 0; fill: currentColor; }
+        .app-store-badge .label { display: flex; flex-direction: column; text-align: left; line-height: 1.1; }
+        .app-store-badge .label .small { font-size: 0.7rem; opacity: 0.9; font-weight: 400; letter-spacing: 0.02em; }
+        .app-store-badge .label .big { font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; margin-top: 1px; }
+    </style>
+
     <!-- Social sharing -->
     <meta property="og:title" content="BookLoom — Private Book Club App with Voting, Meetings &amp; iCloud Sync">
     <meta property="og:description" content="Propose books, vote on the next read, schedule meetings with RSVPs, rate together, and keep a shared history. iPhone, iPad, and Mac. Synced via iCloud — no accounts, no ads.">
